@@ -1,8 +1,8 @@
 # ScrollSh
 ## Description
-ScrollSh est un script permettant de faire scroller un text que vous choisisser avec une animation.
+ScrollSh is a script for scrolling through text of your choice with an animation. 
 
-## Demonstration
+## Demonstration 
 ![Alt Text](READMEFile/test.gif)
 
 ## Installation
