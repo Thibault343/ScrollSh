@@ -1,2 +1,6 @@
 # ScrollSh
-A litle bash script writing a word define by the user with matrx animation
+## Description
+ScrollSh est un script permettant de faire scroller un text que vous choisisser avec une animation.
+
+##Screenshot
+![Alt Text](READMEFile/test.gif)
