@@ -12,7 +12,7 @@ git clone https://github.com/Thibault343/ScrollSh.git
 ```
 ### Script Intall
 ```bash
-cd ScrollSH
+cd ScrollSh
 ./install.sh
 ```
 
