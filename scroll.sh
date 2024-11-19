@@ -1,23 +1,57 @@
 #!/bin/bash
 
-# Liste contenant toutes les lettres de l'alphabet
-alphabet=(
-    a b c d e f g h i j k l m n o p q r s t u v w x y z
-)
+# Variables and lists
+
+# Characters list
+charactersList="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW XYZ+!?@#*ç%&/|()¢=^~èü[!éöä{}]"
+# final word
 final_word=''
-count=0
-# Sélection aléatoire d'une lettre
-lettre_aleatoire=${alphabet[RANDOM % ${#alphabet[@]}]}
+# Word state (the word state define whose letter is check)
+state=1
+# ask a word to user
+word="$1"
+# Fonction d'aide
+show_help() {
+    echo "Usage: $0 [options] <word>"
+    echo
+    echo "Options:"
+    echo "  --help    Show this help message"
+    echo
+    echo "Description:"
+    echo "  This script takes a word as a parameter and removes its last character."
+    echo "  The word should be passed as a parameter when running the script."
+    echo "  To write a phrase you can add ""."
+    echo
+}
 
-# Affiche la lettre choisie
+# Checking options
+if [ "$1" == "--help" ]; then
+    show_help
+    exit 0
+fi
 
-# Demande à l'utilisateur d'entrer un mot
-read -p "Entrez un mot : " mot
-
-# Vérifie si la première lettre du mot correspond à la lettre aléatoire
-while [[ $final_word -lt  $mot]]; do
-    premiere_lettre=${mot:0:1} # Récupère la première lettre du mot
-    if [[ "$premiere_lettre" == "$lettre_aleatoire" ]]; then
-        final_word += $premiere_lettre  
+# Check if a parameter was passed
+if [ -z "$1" ]; then
+    echo "Error: You must provide a word as a parameter."
+    echo "Use --help for more information."
+    exit 1
+fi
+while true; do
+    # verify if the final word is full
+    if [ "$state" -gt "${#word}" ]; then
+        break
     fi
+    # get a letter from the characterlist       
+    characters_random=$(echo $charactersList | fold -w1 | shuf | head -n1)
+    # if the letter is equal to the letter select by the state
+    if [ "$characters_random" = "$(echo "$word" | cut "-c$state")" ]; then
+        final_word+="$characters_random"
+        state=$((state + 1))
+        echo "$final_word"
+    else 
+        final_word+="$characters_random"
+        echo "$final_word"
+        final_word="${final_word%?}"
+    fi
+    
 done
