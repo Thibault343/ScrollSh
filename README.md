@@ -10,8 +10,25 @@ ScrollSh est un script permettant de faire scroller un text que vous choisisser 
 ```git 
 git clone https://github.com/Thibault343/ScrollSh.git
 ```
-### Script intall
+### Script Intall
 ```bash
 cd ScrollSH
 ./install.sh
+```
+
+## Usage
+### words
+```bash
+scroll.sh [word]
+```
+### Phrases
+```bash
+scroll.sh "[phrases]"
+```
+### Exemples
+```bash
+scroll.sh Hello
+```
+```bash
+scroll.sh "Hello World!"
 ```
