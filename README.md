@@ -13,6 +13,7 @@ git clone https://github.com/Thibault343/ScrollSh.git
 ### Script Intall
 ```bash
 cd ScrollSh
+sudo chmod +x ./install.sh
 ./install.sh
 ```
 
