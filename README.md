@@ -39,7 +39,6 @@ scroll.sh "Hello World!"
 scroll.sh "Hello World!" -c red
 ```
 Colors table
-## Color Reference
 
 | Color             |                                                             
 | ----------------- | 
