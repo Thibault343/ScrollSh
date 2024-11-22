@@ -49,7 +49,6 @@ Colors table
 | blue| 
 | magenta| 
 | cyan| 
-| white| 
 | gray| 
 |dark_red|
 | dark_green| 
