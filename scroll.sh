@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Variables and lists
-charactersList="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW XYZ+!?@#*ç%&/|()¢=^~èü[!éöä{}]"
-final_word=''
 # color dictionnary
 declare -A colors
+# Variables and lists
+charactersList="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW XYZ+!?@#*ç%&/|()¢=^~èü[!éöä{}]-_;:.,><\§°"
+final_word=''
+
 
 # Add color codes for text colors
 colors["black"]="\e[30m"
@@ -14,7 +15,6 @@ colors["yellow"]="\e[33m"
 colors["blue"]="\e[34m"
 colors["magenta"]="\e[35m"
 colors["cyan"]="\e[36m"
-colors["white"]="\e[37m"
 colors["gray"]="\e[90m"
 colors["dark_red"]="\e[91m"
 colors["dark_green"]="\e[92m"
@@ -24,12 +24,14 @@ colors["dark_magenta"]="\e[95m"
 colors["dark_cyan"]="\e[96m"
 colors["dark_white"]="\e[97m"
 
+
 # reset color
 reset="\e[0m"
 color=""
 state=1
 word="$1"
 find=false
+bold=false
 
 # Function to display help
 show_help() {
@@ -37,6 +39,7 @@ show_help() {
     echo
     echo "Options:"
     echo "  --help    Show this help message"
+    echo "  -c        add a color to your text, color table : https://github.com/Thibault343/ScrollSh"
     echo
     echo "Description:"
     echo "  This script takes a word as a parameter and removes its last character."
@@ -60,7 +63,6 @@ if [ "$2" == "-c" ]; then
         fi
     done
 fi
-
 # Check if a parameter was passed
 if [ -z "$1" ]; then
     echo "Error: You must provide a word as a parameter."
